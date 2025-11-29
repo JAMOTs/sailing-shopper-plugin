@@ -7,7 +7,7 @@ import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
 import net.runelite.api.events.MenuOpened;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetInfo;
+import net.runelite.api.widgets.WidgetUtil;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -58,7 +58,7 @@ public class ShoppingPlugin extends Plugin
 	public void onMenuOpened(MenuOpened event)
 	{
 		int widgetId = event.getFirstEntry().getParam1();
-		int groupId = WidgetInfo.TO_GROUP(widgetId);
+		int groupId = WidgetUtil.componentToInterface(widgetId);
 
 		// Check if we are in the Construction OR Sailing guide
 		if (groupId == CONSTRUCTION_GUIDE_ID || groupId == SAILING_GUIDE_ID)
